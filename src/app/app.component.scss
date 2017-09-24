@@ -1,0 +1,25 @@
+
+.app-side-menu{
+    width:15em;
+    padding:1rem;
+    background-color:#eee;
+    align-items:stretch;
+
+    .logo{
+        height:2em;
+        width:auto;
+        align-self:center;
+    }
+
+    .app-side-nav{
+        padding:1em;
+        letter-spacing:0.5px;
+        font-weight:bold;
+        color:#777;
+
+        &:hover{
+            cursor:pointer;
+            background-color:white;
+        }
+    }
+}

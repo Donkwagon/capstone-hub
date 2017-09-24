@@ -1,0 +1,194 @@
+/* You can add global styles to this file, and also import other style files */
+$font-stack:'Roboto', sans-serif;
+
+$user:rgb(192, 173, 113);
+$green: #115e67;
+////////////////////////////////////////////////////////////////////////
+/* Frequently used css properties */
+.r{display:flex;flex-direction:row;}.c{display:flex;flex-direction:column;align-items:stretch;}.wr{flex-wrap:wrap;}
+.f1{display:flex;flex:1;}.f162{display:flex;flex:1.62;}.f2{display:flex;flex:2;}.s0{flex-shrink:0;}
+.aie{align-items:flex-end;}
+.ac{text-align:center;}.al{text-align:left;}.ar{text-align:right;}
+.w100{width:100%;}.h100{height:100%;}
+.ofys{overflow-y:scroll;}
+.fe{justify-content:flex-end;}
+.caption{color:#999;}
+
+.user{color:$user;font-weight:normal;}
+
+html{
+    font-family: $font-stack;
+    -webkit-font-smoothing: antialiased;
+    color:#220;
+    font-size:15px;
+}
+
+body{
+    margin:0;padding:0;
+}
+
+.app{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    align-items:stretch;
+}
+
+
+input,textarea{
+    font-size:1rem;
+    padding:0.5rem 1rem;
+
+    &:focus{
+        outline:none;
+    }
+}
+
+.new-task-form{
+    padding:1rem;
+    margin:1rem 0;
+    box-shadow: 0 0 1px #999;
+    border-bottom:#ccc solid 1px;
+    border-left:rgb(192, 173, 113) solid 2px;
+
+    .input-row{
+        padding:1em;
+        border-bottom:#eee solid 1px;
+    }
+
+    .submission-row{
+        padding:1em;
+    }
+
+    .input-label{
+        width:15em;
+        padding:1em 1em 1em 0;
+
+        .input-label-caption{
+            font-size:0.85rem;
+            font-weight:300;
+            color:#999;
+        }
+    }
+
+    .members{
+
+        .member{
+            padding:0.5em 1em 0.5em 0.5em;
+            border-left:$user solid 2px;
+            margin-right:1em;
+            border-radius:3px;
+            box-shadow: 0 0 1px #999;
+            border-bottom:#ccc solid 1px;
+            align-items:center;
+    
+            img{
+                height:2em;width:2em;
+                margin-right:1em;
+                border-radius:100%;
+            }
+
+            &:hover{
+                cursor:pointer;
+                background-color:rgba(192, 173, 113,0.3);
+                font-weight:bold;
+            }
+        }
+
+        .selected{
+            background-color:rgba(192, 173, 113,0.3);
+            font-weight:bold;
+        }
+
+    }
+    
+}
+
+.page-cover{
+    border-bottom:#ccc solid 1px;
+    padding:1em 2em;
+}
+
+.task-list{
+
+    min-width:37em;
+    width:64%;
+    align-self:center;
+}
+
+.task{
+    margin:1rem 0;
+    padding:1rem;
+
+    &:hover{
+        box-shadow:0 0 1px #999;
+    }
+
+    .task-header{
+        padding:0.2em 0.5em;
+        background-color:#777776;
+        color:#fff;
+        font-weight:bold;
+    }
+
+    .task-info{
+        font-weight:300;
+    }
+
+    .sub-tasks{
+        border-top:#333 solid 1px;
+
+        .sub-task{
+            font-weight:300;
+        }
+    }
+}
+
+
+
+
+.btn {
+    position: relative;
+    margin: 24px 0;
+    padding: 10px;
+
+    cursor:pointer;
+
+    background-color: #fff;
+    border: 1px solid #ccc;
+
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transform-style: flat;
+    transition: all 250ms ease-out;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: -2;
+        transition: all 250ms ease-out;
+    }
+}
+
+.paper {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+    border-color: #dedede;
+}
+
+.paper-raise {
+    &:before {
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+    }
+    &:hover {
+        border: 1px solid #fff;
+        
+        &:before {
+                box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+        }
+    }
+}
