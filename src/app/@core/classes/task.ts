@@ -3,7 +3,7 @@ export class Task {
     
     _id?: string;
 
-    users: any[];
+    members: any[];
 
     title: String;
     info: String;
@@ -23,7 +23,7 @@ export class Task {
     updated_at: Date;
 
     constructor(){
-        this.users = [];
+        this.members = [];
         this.title = "";
         this.info = "";
         this.subTasks = [];

@@ -2,9 +2,9 @@
 
   <div class="app-side-menu c">
 
-    <div> {{ (user | async)?.displayName }} </div>
-    <div class="btn paper paper-raise" (click)="login()">Login</div>
-    <div class="btn paper paper-raise" (click)="logout()">Logout</div>
+    <div class="app-side-nav">
+      {{ (user | async)?.displayName }}
+    </div>
     <div class="app-side-nav">
       OVERALL
     </div>
@@ -18,6 +18,8 @@
       RESOURCES
     </div>
     <div class="f1"></div>
+    <div class="btn paper paper-raise" (click)="login()">Login</div>
+    <div class="btn paper paper-raise" (click)="logout()">Logout</div>
 
     <!-- <div class="c">
         <img class="logo" src="http://www.cppib.com/media/original_images/logo3x.png"/>
@@ -31,79 +33,11 @@
       <h2>Work Breakdown Structure</h2>
       <p class="caption"><i>Develop a Work Breakdown Structure (WBS) to ensure that you do not overllok a significant part of a complex activity or under-estimate teh time and resources needed to completed the work. Use mulitple pages as needed.</i></p>
 
-      <div class="new-task-form">
-          <form class="c">
-            <div class="input-row r">
-              <div class="input-label c">
-                Task Title
-              </div>
-              <input class="f1" type="text" placeholder="task" [(ngModel)]="newTask.title" name="title"/>
-            </div>
-    
-            <div class="input-row r">
-              <div class="input-label c">
-                Task Description
-                <div class="input-label-caption">Briefly describe the task</div>
-              </div>
-              <textarea class="f1" [(ngModel)]="newTask.info" name="info"></textarea>
-            </div>
-    
-            <div class="input-row r">
-              <div class="input-label c">
-                Due Date
-              </div>
-              <input class="f1" type="date"  [(ngModel)]="newTask.due_at" name="due_at"/>
-            </div>
-
-    
-            <div class="input-row r">
-              <div class="members r wr">
-                  <div class="input-label c">
-                    Members
-                    <div class="input-label-caption">Selet members that will be on the task</div>
-                  </div>
-                <div class="member r" *ngFor="let member of members | async">
-                  <img [src]="member.photoUrl"/>
-                  {{member.name}}
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row r">
-              <div class="input-label c">
-                Dependencies
-                <div class="input-label-caption">Select tasks need to be completed before proceeding on this task </div>
-              </div>
-              <input class="f1" type="text" placeholder="task" [(ngModel)]="newTask.title" name="title"/>
-            </div>
-    
-
-
-            <div class="submission-row r">
-                <div class="btn paper paper-raise" (click)="createNewTask()">Create</div>
-            </div>
-            <!-- <pre>{{newTask | json}}</pre> -->
-          </form>
-    </div>
+      <app-task-form></app-task-form>
     </div>
     <div class="task-list">
-    
-      <div class="task c" *ngFor="let task of tasks | async">
-        <div class="task-header lvl-1">
-          {{task.title}}
-        </div>
-        <div class="task-info">
-          <p>{{task.info}}</p>
-        </div>
-        <div class="sub-tasks">
-          <p><b>Level 1 Subtasks</b></p>
-          <div class="sub-task">
-            Purchase 3 web servers and 2 databases.
-            <p class="user">Han Qiu</p>
-          </div>
-        </div>
-      </div>
-    
+      <app-task-list-item [task]="task" *ngFor="let task of tasks | async"></app-task-list-item>
+    </div>
   </div>
 
 </div>

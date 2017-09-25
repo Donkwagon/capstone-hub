@@ -19,13 +19,17 @@ import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { HomeComponent } from './home/home.component';
 import { GanttComponent } from './gantt/gantt.component';
+import { TaskFormComponent } from './@shared-components/task-form/task-form.component';
+import { TaskListItemComponent } from './@shared-components/task-list-item/task-list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
     HomeComponent,
-    GanttComponent
+    GanttComponent,
+    TaskFormComponent,
+    TaskListItemComponent
   ],
   imports: [
     BrowserModule,

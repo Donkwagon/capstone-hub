@@ -40,7 +40,7 @@ export class AppComponent {
           this.memberList.push(snapshot.val());
         });
       })
-      
+
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           console.log(user);
@@ -72,6 +72,7 @@ export class AppComponent {
           console.log("No user");
         }
       });
+
     }
   
     login() {
@@ -80,9 +81,5 @@ export class AppComponent {
   
     logout() {
       this.afAuth.auth.signOut();
-    }
-
-    createNewTask() {
-      this.tasks.push(this.newTask);
     }
 }

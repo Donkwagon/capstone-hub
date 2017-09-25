@@ -1,0 +1,72 @@
+
+<div class="new-task-form">
+    <form class="c">
+      <input class="title" placeholder="Task name .."[(ngModel)]="newTask.title" name="title"/>
+
+
+      <div class="input-row r">
+        <div class="input-label c">
+          Task Description
+          <div class="input-label-caption">Briefly describe the task</div>
+        </div>
+        <textarea class="f1" [(ngModel)]="newTask.info" name="info"></textarea>
+      </div>
+
+      <div class="input-row r">
+        <div class="input-label c">
+          Due Date
+        </div>
+        <input class="f1" type="date"  [(ngModel)]="newTask.due_at" name="due_at"/>
+      </div>
+
+
+      <div class="input-row r">
+        <div class="members r wr">
+            <div class="input-label c">
+              Members
+              <div class="input-label-caption">Selet members that will be on the task</div>
+            </div>
+          <div class="member r" *ngFor="let member of members | async" (click)="addMember(member)">
+            <img [src]="member.photoUrl"/>
+            {{member.name}}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row r">
+        <div class="input-label c">
+          Dependencies
+          <div class="input-label-caption">Select tasks need to be completed before proceeding on this task </div>
+        </div>
+        <input class="f1" type="text" placeholder="task" [(ngModel)]="newTask.title" name="title"/>
+      </div>
+
+
+      <div class="input-row r">
+        <div class="input-label c">
+          Tags
+          <div class="input-label-caption">Select tasks need to be completed before proceeding on this task </div>
+        </div>
+        <input class="f1" type="text" placeholder="task" [(ngModel)]="newTask.title" name="title"/>
+      </div>
+
+
+
+      <div class="input-row r">
+          <div class="input-label c">
+            Sub Tasks
+            <div class="input-label-caption">Select tasks need to be completed before proceeding on this task </div>
+          </div>
+          <div class="btn paper paper-raise" (click)="createNewTask()">Add a Subtask</div>
+        </div>
+
+      <div class="submission-row r">
+          <div class="btn paper paper-raise publish-btn" (click)="createNewTask()">Publish Now</div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="btn paper paper-raise" (click)="createNewTask()">Save for Later</div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="btn paper paper-raise" (click)="createNewTask()">Discard</div>
+      </div>
+      <!-- <pre>{{newTask | json}}</pre> -->
+    </form>
+</div>
