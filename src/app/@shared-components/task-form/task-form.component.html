@@ -1,5 +1,5 @@
 
-<div class="new-task-form">
+<div class="new-task-form" *ngIf="display">
 
     <form class="c">
       <input class="title" placeholder="Task name .."[(ngModel)]="newTask.title" name="title"/>

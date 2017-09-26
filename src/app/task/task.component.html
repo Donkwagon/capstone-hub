@@ -2,18 +2,26 @@
   <div class="overall-task r">
     <div class="c f1">
       <h1>{{task.title}}</h1>
-      <p>{{task.info}}</p>
       <div class="r">
         <div class="member r" *ngFor="let member of task.members">
           <img [src]="member.photoUrl"/>
           {{member.name}}
         </div>
       </div>
+      <p>{{task.info}}</p>
+      <div class="action-bar r">
+        <div class="btn paper paper-raise " >
+          Mark as Complete
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="btn paper paper-raise" >
+          Edit
+        </div>
+      </div>
     </div>
     <div class="due">
       {{task.due_at}}
     </div>
-
   </div>
   <div class="c">
     <div class="subtask" *ngFor="let subtask of task.subTasks">
@@ -21,7 +29,7 @@
       <p>{{subtask.info}}</p>
     </div>
   </div>
-  <pre>
+  <!-- <pre>
     {{task | json}}
-  </pre>
+  </pre> -->
 </div>

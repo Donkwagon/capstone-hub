@@ -16,10 +16,13 @@ export class TaskFormComponent implements OnInit {
 
   newTask: Task;
   tasks: FirebaseListObservable<any>;
+  display:Boolean;
 
   members: FirebaseListObservable<any>;
   
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {
+    this.display = false;
+  }
 
   ngOnInit() {
     this.newTask = new Task();

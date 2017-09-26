@@ -4,16 +4,24 @@
 }
 
 .due{
-    background-color:rgba(192, 173, 113,0.3);
+    background-color:rgba(192, 173, 113,0.2);
     padding:2rem;
     font-size:3em;
     font-weight:bold;
     border-radius:2px;
 }
 
+.action-bar{
+
+    .action-btn{
+        padding:1em;
+
+    }
+}
+
 .overall-task{
-    border-bottom:#eee solid 1px;
     padding-bottom:1rem;
+    border-bottom:#eee solid 1px;
 }
 
 .subtask{
