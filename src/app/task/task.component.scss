@@ -1,0 +1,21 @@
+
+.task-interface{
+    padding:1em 2em;
+}
+
+.due{
+    background-color:rgba(192, 173, 113,0.3);
+    padding:2rem;
+    font-size:3em;
+    font-weight:bold;
+    border-radius:2px;
+}
+
+.overall-task{
+    border-bottom:#eee solid 1px;
+    padding-bottom:1rem;
+}
+
+.subtask{
+    border-bottom:#eee solid 1px;
+}

@@ -1,16 +1,18 @@
 
 <div class="task c">
   <div class="task-header lvl-1">
-    {{task.title}}      
+    <a routerLink="/task/{{task.id}}">{{task.title}}</a>   
   </div>
   <div class="task-info">
     <p>{{task.info}}</p>
   </div>
   <div class="sub-tasks">
-    <p><b>Level 1 Subtasks</b></p>
-    <div class="sub-task">
-      Purchase 3 web servers and 2 databases.
-      <p class="user">Han Qiu</p>
+    <div class="subtask" *ngFor="let subtask of task.subTasks">
+      <p><b>{{subtask.title}}</b></p>
+      <div class="sub-task">
+        {{subtask.info}}
+        <p class="user">Han Qiu</p>
+      </div>
     </div>
   </div>
   <div class="r">

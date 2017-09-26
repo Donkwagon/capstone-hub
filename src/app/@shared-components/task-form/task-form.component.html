@@ -1,9 +1,8 @@
 
 <div class="new-task-form">
+
     <form class="c">
       <input class="title" placeholder="Task name .."[(ngModel)]="newTask.title" name="title"/>
-
-
       <div class="input-row r">
         <div class="input-label c">
           Task Description
@@ -41,24 +40,42 @@
         <input class="f1" type="text" placeholder="task" [(ngModel)]="newTask.title" name="title"/>
       </div>
 
-
-      <div class="input-row r">
+      <!-- <div class="input-row r">
         <div class="input-label c">
           Tags
           <div class="input-label-caption">Select tasks need to be completed before proceeding on this task </div>
         </div>
         <input class="f1" type="text" placeholder="task" [(ngModel)]="newTask.title" name="title"/>
-      </div>
-
-
+      </div> -->
 
       <div class="input-row r">
-          <div class="input-label c">
-            Sub Tasks
-            <div class="input-label-caption">Select tasks need to be completed before proceeding on this task </div>
-          </div>
-          <div class="btn paper paper-raise" (click)="createNewTask()">Add a Subtask</div>
+        <div class="input-label c">
+          Sub Tasks
+          <div class="input-label-caption">Select tasks need to be completed before proceeding on this task </div>
         </div>
+        <div class="c f1">
+          <div class="sub-task c" *ngFor="let subtask of newTask.subTasks">
+            <input placeholder="subtask-title" [(ngModel)]="subtask.title" name="subtask-title"/>
+            <br>
+            <textarea placeholder="subtask-info"  [(ngModel)]="subtask.info" name="subtask-info"></textarea>
+            <br>
+            <input type="date"  [(ngModel)]="newTask.due_at" max="task.due_at" name="subtask-due_at"/>
+            
+            <div class="input-row r">
+              <div class="members r wr">
+                  <div class="input-label c">
+                    Members
+                  </div>
+                <div class="member r" *ngFor="let member of members | async" (click)="addMember(member)">
+                  <img [src]="member.photoUrl"/>
+                  {{member.name}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn paper paper-raise" (click)="addSubtask()">Add a Subtask</div>
+        </div>
+      </div>
 
       <div class="submission-row r">
           <div class="btn paper paper-raise publish-btn" (click)="createNewTask()">Publish Now</div>

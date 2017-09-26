@@ -3,6 +3,8 @@ export class Task {
     
     _id?: string;
 
+    id: string;
+
     members: any[];
 
     title: String;
@@ -19,11 +21,12 @@ export class Task {
     duration: Number;
 
     due_at: Date;
-    created_at: Date;
+    created_at: any;
     updated_at: Date;
 
     constructor(){
         this.members = [];
+        this.id = "";
         this.title = "";
         this.info = "";
         this.subTasks = [];
@@ -32,6 +35,9 @@ export class Task {
         this.links = [];
         this.duration = 0;
         this.due_at = null;
+        var today = new Date();
+        var dd = today.toISOString().slice(0,10);
+        this.created_at = dd;
     }
 
     // public validate = () =>{

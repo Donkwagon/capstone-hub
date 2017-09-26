@@ -1,3 +1,18 @@
-<p>
-  gantt works!
-</p>
+<div class="gantt c f1">
+  <div class="cols r">
+    <div class="col f1 c" *ngFor="let col of cols">
+      <div class="col-head c">
+          {{col.day}}
+      </div>
+    </div>
+  </div>
+  <div class="task-list c">
+    <div class="task-row r" *ngFor="let task of tasks">
+      <div class="offset-start" [style.flex-grow]="task.offsetStart"></div>
+      <div class="task-bar r" [style.flex-grow]="task.duration">
+          {{task.title}}
+      </div>
+      <div class="offset-start" [style.flex-grow]="task.offsetEnd"></div>
+    </div>
+  </div>
+</div>

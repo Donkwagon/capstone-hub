@@ -44,81 +44,6 @@ input,textarea{
     }
 }
 
-.new-task-form{
-    padding:1rem 1rem 0 1rem;
-    margin:1rem 0;
-    box-shadow: 0 0 1px #999;
-    border-bottom:#ccc solid 1px;
-    border-left:rgb(192, 173, 113) solid 2px;
-
-    .title{
-        margin:0;
-        padding:1rem 0;
-        border:none;
-        margin-bottom:1em;
-        font-size:1.5rem;
-        border-bottom:transparent solid 1px;
-        font-weight:bold;
-
-        &:focus{
-            border-bottom:rgba(192, 173, 113,0.3) solid 1px;
-        }
-    }
-
-    .input-row{
-        padding:0.5em;
-        border-bottom:#eee solid 1px;
-        align-items:center;
-    }
-
-    .submission-row{
-        padding:0.5em;
-    }
-
-    .input-label{
-        width:15em;
-        padding:1em 1em 1em 0;
-
-        .input-label-caption{
-            font-size:0.85rem;
-            font-weight:300;
-            color:#999;
-        }
-    }
-
-    .members{
-        align-items:center;
-
-        .member{
-            padding:0.5em 1em 0.5em 0.5em;
-            border-left:$user solid 2px;
-            margin-right:1em;
-            border-radius:3px;
-            box-shadow: 0 0 1px #999;
-            border-bottom:#ccc solid 1px;
-            align-items:center;
-    
-            img{
-                height:2em;width:2em;
-                margin-right:1em;
-                border-radius:100%;
-            }
-
-            &:hover{
-                cursor:pointer;
-                background-color:rgba(192, 173, 113,0.3);
-                font-weight:bold;
-            }
-        }
-
-        .selected{
-            background-color:rgba(192, 173, 113,0.3);
-            font-weight:bold;
-        }
-
-    }
-    
-}
 
 .page-cover{
     border-bottom:#ccc solid 1px;
@@ -161,7 +86,32 @@ input,textarea{
 }
 
 
+.member{
+    padding:0.5em 1em 0.5em 0.5em;
+    border-left:rgb(192, 173, 113) solid 2px;
+    margin-right:1em;
+    border-radius:3px;
+    box-shadow: 0 0 1px #999;
+    border-bottom:#ccc solid 1px;
+    align-items:center;
 
+    img{
+        height:2em;width:2em;
+        margin-right:1em;
+        border-radius:100%;
+    }
+
+    &:hover{
+        cursor:pointer;
+        background-color:rgba(192, 173, 113,0.3);
+        font-weight:bold;
+    }
+}
+
+app-gantt{
+    flex:1;
+    flex-direction:column;
+}
 
 .btn {
     position: relative;

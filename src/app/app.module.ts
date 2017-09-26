@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { GanttComponent } from './gantt/gantt.component';
 import { TaskFormComponent } from './@shared-components/task-form/task-form.component';
 import { TaskListItemComponent } from './@shared-components/task-list-item/task-list-item.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TaskListItemComponent } from './@shared-components/task-list-item/task-
     HomeComponent,
     GanttComponent,
     TaskFormComponent,
-    TaskListItemComponent
+    TaskListItemComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+<div class="task-interface c" *ngFor="let task of tasks | async">
+  <div class="overall-task r">
+    <div class="c f1">
+      <h1>{{task.title}}</h1>
+      <p>{{task.info}}</p>
+      <div class="r">
+        <div class="member r" *ngFor="let member of task.members">
+          <img [src]="member.photoUrl"/>
+          {{member.name}}
+        </div>
+      </div>
+    </div>
+    <div class="due">
+      {{task.due_at}}
+    </div>
+
+  </div>
+  <div class="c">
+    <div class="subtask" *ngFor="let subtask of task.subTasks">
+      <h3>{{subtask.title}}</h3>
+      <p>{{subtask.info}}</p>
+    </div>
+  </div>
+  <pre>
+    {{task | json}}
+  </pre>
+</div>
