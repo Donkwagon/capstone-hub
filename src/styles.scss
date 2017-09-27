@@ -164,3 +164,11 @@ app-gantt{
         }
     }
 }
+
+.text-btn{
+    color:$user;
+
+    &:hover{
+        background-color:#115e67;
+    }
+}
