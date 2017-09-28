@@ -3,8 +3,8 @@
 .new-task-form{
     padding:1rem 1rem 0 1rem;
     margin:1rem 0;
-    box-shadow: 0 0 1px #999;
-    border-bottom:#ccc solid 1px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.06) inset;
     border-left:rgb(192, 173, 113) solid 2px;
 
     .title{
@@ -28,7 +28,7 @@
     }
 
     .submission-row{
-        padding:0.5em;
+        padding:1rem 0.5em;
     }
 
     .input-label{

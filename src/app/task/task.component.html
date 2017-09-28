@@ -32,32 +32,35 @@
       <h3>{{subtask.title}}</h3>
       <p>{{subtask.info}}</p>
       <span class="text-btn">+ add a subtask</span>
-
-      <div class="sub-task-form c">
-        <h3>{{subtask.title}} > New Subtask</h3>
-        <input placeholder="subtask-title" [(ngModel)]="subtask.title" name="subtask-title"/>
-        <br>
-        <textarea placeholder="subtask-info"  [(ngModel)]="subtask.info" name="subtask-info"></textarea>
-        <br>
-        <input type="date"  [(ngModel)]="subtask.due_at" max="task.due_at" name="subtask-due_at"/>
-        
-        <div class="input-row r">
-          <div class="members r wr">
-              <div class="input-label c">
-                Members
+      <br>
+      <div class="sub-task-list c">
+          <div class="sub-task-form c">
+            <h3>{{subtask.title}} > New Subtask</h3>
+            <input placeholder="subtask-title" [(ngModel)]="subtask.title" name="subtask-title"/>
+            <br>
+            <textarea placeholder="subtask-info"  [(ngModel)]="subtask.info" name="subtask-info"></textarea>
+            <br>
+            <input type="date"  [(ngModel)]="subtask.due_at" max="task.due_at" name="subtask-due_at"/>
+            
+            <div class="input-row r">
+              <div class="members r wr">
+                  <div class="input-label c">
+                    Members
+                  </div>
+                <div class="member r" *ngFor="let member of members | async" (click)="addMember(member)">
+                  <img [src]="member.photoUrl"/>
+                  {{member.name}}
+                </div>
               </div>
-            <div class="member r" *ngFor="let member of members | async" (click)="addMember(member)">
-              <img [src]="member.photoUrl"/>
-              {{member.name}}
+            </div>
+    
+            <div class="submission-row r">
+              <div class="btn paper paper-raise publish-btn" (click)="update()">Add Subtask</div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="btn paper paper-raise" (click)="discard()">Discard</div>
             </div>
           </div>
-        </div>
-
-        <div class="submission-row r">
-          <div class="btn paper paper-raise publish-btn" (click)="update()">Add Subtask</div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="btn paper paper-raise" (click)="discard()">Discard</div>
-        </div>
+        
       </div>
       <br>
       

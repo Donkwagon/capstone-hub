@@ -29,11 +29,16 @@
     border-bottom:#eee solid 1px;
 }
 
+.sub-task-list{
+    padding-left:1em;
+    margin-left:1em;
+    border-left:#ccc dotted 1px;
+}
+
 .sub-task-form{
-    border: 1px solid #ccc;
-    box-shadow: 0 0 3px black;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
     margin:1rem 0;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
     padding:1rem;
     
     .input-row{

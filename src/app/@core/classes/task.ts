@@ -1,6 +1,6 @@
 
 export class Task {
-    
+
     _id?: string;
 
     id: string;
@@ -11,11 +11,8 @@ export class Task {
     info: String;
 
     subTasks: Task[];
-
     completion: Boolean;
-
     dependency: any;
-    
     links: any[];
 
     duration: Number;
@@ -24,19 +21,19 @@ export class Task {
     created_at: any;
     updated_at: Date;
 
-    constructor(){
+    constructor() {
         this.members = [];
-        this.id = "";
-        this.title = "";
-        this.info = "";
+        this.id = '';
+        this.title = '';
+        this.info = '';
         this.subTasks = [];
         this.completion = false;
         this.dependency = null;
         this.links = [];
         this.duration = 0;
         this.due_at = null;
-        var today = new Date();
-        var dd = today.toISOString().slice(0,10);
+        const today = new Date();
+        const dd = today.toISOString().slice(0, 10);
         this.created_at = dd;
     }
 
@@ -46,7 +43,7 @@ export class Task {
     //     this.title ? errors.push("please enter title") : 0;
     //     this.info ? errors.push("please enter task info") : 0;
     //     this.duration ? errors.push("please enter ") : 0;
-        
+
     //     if(errors){
     //         return errors;
     //     }else{

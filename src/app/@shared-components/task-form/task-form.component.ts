@@ -16,12 +16,12 @@ export class TaskFormComponent implements OnInit {
 
   newTask: Task;
   tasks: FirebaseListObservable<any>;
-  display:Boolean;
+  display: Boolean;
 
   members: FirebaseListObservable<any>;
-  
+
   constructor(private db: AngularFireDatabase) {
-    this.display = false;
+    this.display = true;
   }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class TaskFormComponent implements OnInit {
   }
 
   addSubtask() {
-    var subTask = new Task();
+    const subTask = new Task();
     this.newTask.subTasks.push(subTask);
   }
 
@@ -45,11 +45,7 @@ export class TaskFormComponent implements OnInit {
   }
 
   guid() {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
+    function s4() {return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1); }
     return s4() + s4() + '-' + s4();
   }
 }
