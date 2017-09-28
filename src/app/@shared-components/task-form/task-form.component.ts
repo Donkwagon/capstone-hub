@@ -32,7 +32,6 @@ export class TaskFormComponent implements OnInit {
 
   createNewTask() {
     this.newTask.id = this.guid();
-    console.log(this.newTask.id);
     this.tasks.push(this.newTask);
   }
 
@@ -44,6 +43,7 @@ export class TaskFormComponent implements OnInit {
   addMember(member) {
     this.newTask.members.push(member);
   }
+
   guid() {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)

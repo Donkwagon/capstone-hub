@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { GanttComponent } from './gantt/gantt.component';
 import { TaskComponent } from './task/task.component';
+import { MemberComponent } from './member/member.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'gantt', component: GanttComponent},
   { path: 'tasks', component: TaskListComponent},
-  { path: 'task/:taskId', component: TaskComponent}
+  { path: 'task/:taskId', component: TaskComponent},
+  { path: 'member/:uid', component: MemberComponent}
 ];
 
 @NgModule({

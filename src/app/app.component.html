@@ -2,9 +2,9 @@
 
   <div class="app-side-menu c">
 
-    <div class="app-side-nav">
+    <a class="app-side-nav"routerLink="/member/{{(user | async)?.uid}}">
       {{ (user | async)?.displayName }}
-    </div>
+    </a>
 
     <a class="app-side-nav" routerLink="/home" routerLinkActive="active">
       HOME
