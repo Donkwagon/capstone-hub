@@ -42,7 +42,14 @@ export class TaskFormComponent implements OnInit {
   }
 
   addMember(member) {
-    this.newTask.members.push(member);
+    if (member.selected) {
+      const index = this.newTask.members.indexOf(member);
+      this.newTask.members.splice(index, 1);
+      member.selected = false;
+    } else {
+      this.newTask.members.push(member);
+      member.selected = true;
+    }
   }
 
   displayForm() {

@@ -26,11 +26,11 @@
 
       <div class="input-row r">
         <div class="members r wr">
-            <div class="input-label c">
-              Members
-              <div class="input-label-caption">Selet members that will be on the task</div>
-            </div>
-          <div class="member r" *ngFor="let member of members | async" (click)="addMember(member)">
+          <div class="input-label c">
+            Members
+            <div class="input-label-caption">Selet members that will be on the task</div>
+          </div>
+          <div class="member r" *ngFor="let member of members | async" (click)="addMember(member)" [ngClass]="{'selected': member.selected}">
             <img [src]="member.photoUrl"/>
             {{member.name}}
           </div>
