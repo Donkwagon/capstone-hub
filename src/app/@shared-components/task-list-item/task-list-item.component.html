@@ -5,17 +5,19 @@
   </div>
   <div class="task-info">
     <p>{{task.info}}</p>
+    <div class="r wr">
+      <span class="user" *ngFor="let member of task.members">{{member.name}}&nbsp;</span>
+    </div>
+    <br>
   </div>
   <div class="sub-tasks">
     <div class="subtask" *ngFor="let subtask of task.subTasks">
       <p><b>{{subtask.title}}</b></p>
       <div class="sub-task">
-        {{subtask.info}}
-        <p class="user">Han Qiu</p>
+        <div class="r wr">
+          <span class="user" *ngFor="let member of subtask.members">{{member.name}}</span>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="r">
-      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>            
   </div>
 </div>

@@ -16,6 +16,8 @@ export class TaskComponent implements OnInit {
   tasks: FirebaseListObservable<any>;
   members: FirebaseListObservable<any>;
 
+  displaySubTaskForm: Boolean;
+
   newTask: Task;
 
   constructor(
@@ -23,6 +25,7 @@ export class TaskComponent implements OnInit {
     private db: AngularFireDatabase
   ) {
     this.newTask = new Task();
+    this.displaySubTaskForm = false;
   }
 
   ngOnInit() {
@@ -44,8 +47,15 @@ export class TaskComponent implements OnInit {
     });
   }
 
-  updateTask(task) {
-    this.tasks.update(task.$key, {task});
+  update(task) {
+    task.subTasks.push(this.newTask);
+    this.tasks.update(task.$key, task);
+    this.newTask = new Task();
+    this.displaySubTaskForm = false;
+  }
+
+  showSubtaskForm() {
+    this.displaySubTaskForm = true;
   }
 
   // takes yyyy-mm-dd

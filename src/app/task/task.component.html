@@ -31,9 +31,8 @@
 
       <h3>{{subtask.title}}</h3>
       <p>{{subtask.info}}</p>
-      <span class="text-btn">+ add a subtask</span>
       <br>
-      <div class="sub-task-list c">
+      <!-- <div class="sub-task-list c">
           <div class="sub-task-form c">
             <h3>{{subtask.title}} > New Subtask</h3>
             <input placeholder="subtask-title" [(ngModel)]="subtask.title" name="subtask-title"/>
@@ -61,12 +60,10 @@
             </div>
           </div>
         
-      </div>
-      <br>
-      
+      </div> -->
     </div>
 
-    <div class="sub-task-form c">
+    <div class="sub-task-form c" *ngIf="displaySubTaskForm">
       <h3>{{task.title}} > New Subtask</h3>
       <input placeholder="subtask-title" [(ngModel)]="newTask.title" name="subtask-title"/>
       <br>
@@ -87,13 +84,14 @@
       </div>
 
       <div class="submission-row r">
-        <div class="btn paper paper-raise publish-btn" (click)="update()">Add Subtask</div>
+        <div class="btn paper paper-raise publish-btn" (click)="update(task)">Add Subtask</div>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="btn paper paper-raise" (click)="discard()">Discard</div>
       </div>
     </div>
+    <br>
+    <div class="r" *ngIf="!displaySubTaskForm">
+      <div class="btn paper paper-raise publish-btn" (click)="showSubtaskForm()">Add a Subtask</div>
+    </div>
   </div>
-  <!-- <pre>
-    {{task | json}}
-  </pre> -->
 </div>
