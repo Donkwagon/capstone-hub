@@ -1,26 +1,31 @@
-<div class="app r">
-
-  <div class="app-side-menu c">
-
-    <a class="app-side-nav"routerLink="/member/{{(user | async)?.uid}}">
-      {{ (user | async)?.displayName }}
+<div class="app c">
+  <div class="app-head-bar r">
+    <a class="app-head-nav r" routerLink="/home">
+      MPC - CPPIB
     </a>
-
-    <a class="app-side-nav" routerLink="/home" routerLinkActive="active">
-      HOME
-    </a>
-    <a class="app-side-nav" routerLink="/gantt" routerLinkActive="active">
-      GANTT
-    </a>
-
     <div class="f1"></div>
-    <div class="btn paper paper-raise" (click)="login()">Login</div>
-    <div class="btn paper paper-raise" (click)="logout()">Logout</div>
-
+    <a class="app-head-nav r" routerLink="/member/{{(user | async)?.uid}}">
+        {{ (user | async)?.displayName }}
+    </a>
   </div>
+  <div class="r f1">
+  
+    <div class="app-side-menu c">
 
-  <div class="app-main c f1 ofys">
-    <router-outlet></router-outlet>
+      <a class="app-side-nav" routerLink="/gantt" routerLinkActive="active">
+        GANTT
+      </a>
+  
+      <div class="f1"></div>
+      <div class="btn paper paper-raise" (click)="login()">Login</div>
+      <div class="btn paper paper-raise" (click)="logout()">Logout</div>
+  
+    </div>
+  
+    <div class="app-main c f1 ofys">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 
 </div>

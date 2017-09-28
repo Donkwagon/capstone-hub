@@ -1,7 +1,22 @@
 
+.app-head-bar{
+    height:3em;
+    background-color:rgba(192, 173, 113, 0.1);
+    z-index:50;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+    align-items: center;
+
+    .app-head-nav{
+        align-items:center;
+        font-weight:bold;
+        color:rgba(0,0,0,0.5);
+        padding:0 1em;
+    }
+}
+
 .app-side-menu{
     width:15em;
-    padding:1rem;
+    padding:1rem 0;
     background-color:#eee;
     align-items:stretch;
 

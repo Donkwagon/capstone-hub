@@ -53,7 +53,10 @@ export class TaskFormComponent implements OnInit {
   }
 
   displayForm() {
-    this.display = true;
+    this.displayForm ? this.display = false : this.display = true;
+  }
+
+  save() {
   }
 
   guid() {
