@@ -21,7 +21,7 @@ export class TaskFormComponent implements OnInit {
   members: FirebaseListObservable<any>;
 
   constructor(private db: AngularFireDatabase) {
-    this.display = true;
+    this.display = false;
   }
 
   ngOnInit() {
@@ -33,6 +33,7 @@ export class TaskFormComponent implements OnInit {
   createNewTask() {
     this.newTask.id = this.guid();
     this.tasks.push(this.newTask);
+    this.display = false;
   }
 
   addSubtask() {
@@ -42,6 +43,10 @@ export class TaskFormComponent implements OnInit {
 
   addMember(member) {
     this.newTask.members.push(member);
+  }
+
+  displayForm() {
+    this.display = true;
   }
 
   guid() {
