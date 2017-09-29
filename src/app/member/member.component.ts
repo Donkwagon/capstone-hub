@@ -10,6 +10,7 @@ import { Task } from './../@core/classes/task';
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.scss']
 })
+
 export class MemberComponent implements OnInit {
 
   sub: any;

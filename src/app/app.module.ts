@@ -23,6 +23,8 @@ import { TaskFormComponent } from './@shared-components/task-form/task-form.comp
 import { TaskListItemComponent } from './@shared-components/task-list-item/task-list-item.component';
 import { TaskComponent } from './task/task.component';
 import { MemberComponent } from './member/member.component';
+import { PhaseComponent } from './phase/phase.component';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { MemberComponent } from './member/member.component';
     TaskFormComponent,
     TaskListItemComponent,
     TaskComponent,
-    MemberComponent
+    MemberComponent,
+    PhaseComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
