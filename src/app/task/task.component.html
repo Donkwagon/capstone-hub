@@ -4,12 +4,12 @@
     <div class="c f1">
       <h1>{{task.title}}</h1>
       <div class="r">
-        <div class="member r" *ngFor="let member of task.members">
+        <a class="member r" routerLink="/member/{{member.uid}}" *ngFor="let member of task.members">
           <img [src]="member.photoUrl"/>
           {{member.name}}
-        </div>
+        </a>
       </div>
-      <p>{{task.info}}</p>
+      <br>
       <div class="action-bar r">
         <div class="btn paper paper-raise " >
           Mark as Complete
@@ -25,6 +25,7 @@
     </div>
   </div>
 
+  <p class="task-info">{{task.info}}</p>
   <div class="c">
 
     <div class="subtask" *ngFor="let subtask of task.subTasks">

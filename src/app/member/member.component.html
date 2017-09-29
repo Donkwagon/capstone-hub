@@ -1,3 +1,11 @@
-<p>
-  member works!
-</p>
+<div class="page c" *ngFor="let member of members | async">
+
+  <div class="page-cover">
+    <h1>{{member.name}}</h1>
+  </div>
+
+  <div class="task-list c">
+    <app-task-list-item [task]="task" *ngFor="let task of tasks | async"></app-task-list-item>
+  </div>
+  
+</div>

@@ -29,12 +29,7 @@ export class HomeComponent implements OnInit {
     this.tasks = this.db.list('/tasks');
     this.members = this.db.list('/members');
     this.memberListObservable = this.db.list('/members', { preserveSnapshot: true });
-    this.tasks = this.db.list('/tasks', {
-      query: {
-        orderByChild: '-KupldHh2bPA_67cyA0F',
-        equalTo: true
-      }
-    });
+    this.tasks = this.db.list('/tasks');
 
     this.memberListObservable.subscribe(snapshots => {
       snapshots.forEach(member => {
