@@ -30,7 +30,7 @@
             Members
             <div class="input-label-caption">Selet members that will be on the task</div>
           </div>
-          <div class="member r" *ngFor="let member of members | async" (click)="addMember(member)" [ngClass]="{'selected': member.selected}">
+          <div class="member r" *ngFor="let member of members | async" (click)="addMember(newTask, member)" [ngClass]="{'selected': member.selected}">
             <img [src]="member.photoUrl"/>
             {{member.name}}
           </div>
@@ -67,11 +67,11 @@
             <input type="date"  [(ngModel)]="newTask.due_at" max="task.due_at" name="subtask-due_at"/>
             
             <div class="input-row r">
+              <div class="input-label c">
+                Members
+              </div>
               <div class="members r wr">
-                  <div class="input-label c">
-                    Members
-                  </div>
-                <div class="member r" *ngFor="let member of members | async" (click)="addMember(member)">
+                <div class="member r" *ngFor="let member of members | async" (click)="addMember(subtask, member)" [ngClass]="{'selected': member.selected}">
                   <img [src]="member.photoUrl"/>
                   {{member.name}}
                 </div>

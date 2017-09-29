@@ -41,19 +41,21 @@ export class TaskFormComponent implements OnInit {
     this.newTask.subTasks.push(subTask);
   }
 
-  addMember(member) {
+  addMember(task, member) {
     if (member.selected) {
-      const index = this.newTask.members.indexOf(member);
-      this.newTask.members.splice(index, 1);
+      task[member.$key] = false;
+      const index = task.members.indexOf(member);
+      task.members.splice(index, 1);
       member.selected = false;
     } else {
-      this.newTask.members.push(member);
+      task[member.$key] = true;
+      task.members.push(member);
       member.selected = true;
     }
   }
 
   displayForm() {
-    this.displayForm ? this.display = false : this.display = true;
+    this.display ? this.display = false : this.display = true;
   }
 
   save() {

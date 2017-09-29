@@ -1,4 +1,5 @@
 <div class="app c">
+
   <div class="app-head-bar r">
     <a class="app-head-nav r" routerLink="/home">
       MPC - CPPIB
@@ -8,11 +9,20 @@
         {{ (user | async)?.displayName }}
     </a>
   </div>
+
   <div class="r f1">
   
     <div class="app-side-menu c">
 
       <a class="app-side-nav" routerLink="/gantt" routerLinkActive="active">
+        <i class="fa fa-th-list" aria-hidden="true"></i>
+        &nbsp;        
+        Work Breakdown
+      </a>
+      
+      <a class="app-side-nav" routerLink="/gantt" routerLinkActive="active">
+        <i class="fa fa-tasks" aria-hidden="true"></i>        
+        &nbsp;        
         GANTT
       </a>
   

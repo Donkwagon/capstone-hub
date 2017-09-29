@@ -25,7 +25,7 @@ html{
     font-family: $font-stack;
     -webkit-font-smoothing: antialiased;
     color:#220;
-    font-size:15px;
+    font-size:16px;
 }
 
 body{
@@ -87,6 +87,61 @@ input,textarea{
         .sub-task{
             font-weight:300;
         }
+    }
+}
+
+.members-dashboard{
+    padding:1rem;
+
+    .member-dashboard-module{
+        margin:1rem;
+        padding:1rem;
+        min-width:25rem;
+        background-color:#eee;
+
+        img{
+            height:6em;width:6em;
+            border-radius:100%;
+        }
+
+        .name{
+            font-size:1.5rem;
+            font-weight:bold;
+            color:rgba(0,0,0,0.5);
+        }
+
+        .member-info{
+            padding:0 1rem;
+
+            .member-stats{
+                padding:0 0.5em;
+
+                background-color:rgba(192, 173, 113, 0.1);
+                
+                .member-stat-box{
+                    padding:0.5em;
+                    align-items:center;
+                    
+                    h1{
+                        margin:0;padding:0;
+                        color:#333;
+                    }
+    
+                    h2{
+                        margin:0;padding:0;
+                        font-size:0.8rem;
+                        font-weight:normal;
+                        color:rgba(0,0,0,0.5);
+                    }
+                }
+            }
+        }
+    }
+
+    .null-module{
+        margin:1rem;
+        padding:1rem;
+
     }
 }
 

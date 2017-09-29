@@ -28,7 +28,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.members = this.db.list('/members');
-    this.memberListObservable = this.db.list('/members', { preserveSnapshot: true })
+    this.memberListObservable = this.db.list('/members', { preserveSnapshot: true });
 
     this.memberListObservable.subscribe(snapshots => {
       snapshots.forEach(snapshot => {

@@ -1,11 +1,47 @@
 <div class="c">
+
   <div class="page-cover">
     <h2>Work Breakdown Structure</h2>
     <p class="caption"><i>Develop a Work Breakdown Structure (WBS) to ensure that you do not overllok a significant part of a complex activity or under-estimate teh time and resources needed to completed the work. Use mulitple pages as needed.</i></p>
-    
     <app-task-form></app-task-form>
   </div>
+
+  <div class="members-dashboard r wr">
+    <div class="member-dashboard-module c f1" *ngFor="let member of memberListHome">
+      <div class="r">
+        <img [src]="member.photoUrl"/>
+        <div class="member-info c">
+          <div class="name">{{member.name}}</div>
+
+          <div class="member-stats r">
+            <div class="member-stat-box c">
+              <h1>{{(member.tasks | async)?.length}}</h1>
+              <h2>Active Task</h2>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="member-stat-box c">
+              <h1>{{(member.tasks | async)?.length}}</h1>
+              <h2>Finished</h2>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="member-stat-box c">
+              <h1>{{(member.tasks | async)?.length}}</h1>
+              <h2>Overdues</h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="c">
+        <p *ngFor="let task of member.tasks | async">{{task.title}}</p>
+      </div>
+    </div>
+    <div class="null-module f1"></div>
+  </div>
+
   <div class="task-list c">
     <app-task-list-item [task]="task" *ngFor="let task of tasks | async"></app-task-list-item>
   </div>
+
 </div>
