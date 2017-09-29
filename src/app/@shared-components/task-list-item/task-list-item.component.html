@@ -3,14 +3,14 @@
   <div class="task-header lvl-1">
     <a routerLink="/task/{{task.id}}">{{task.title}}</a>   
   </div>
-  <div class="task-info">
-    <p>{{task.info}}</p>
-    <div class="r wr">
-      <span class="user" *ngFor="let member of task.members">{{member.name}}&nbsp;</span>
-    </div>
-    <br>
+  <div class="r wr">
+    <a class="user" routerLink="/member/{{member.uid}}" *ngFor="let member of task.members">{{member.name}}&nbsp;</a>
   </div>
-  <div class="sub-tasks">
+  <!-- <div class="task-info">
+    <p>{{task.info}}</p>
+    <br>
+  </div> -->
+  <!-- <div class="sub-tasks">
     <div class="subtask" *ngFor="let subtask of task.subTasks">
       <p><b>{{subtask.title}}</b></p>
       <div class="sub-task">
@@ -19,5 +19,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

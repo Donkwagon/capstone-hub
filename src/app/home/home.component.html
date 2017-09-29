@@ -6,7 +6,7 @@
     <app-task-form></app-task-form>
   </div>
 
-  <div class="members-dashboard r wr">
+  <!-- <div class="members-dashboard r wr">
     <div class="member-dashboard-module c f1" *ngFor="let member of memberListHome">
       <div class="r">
         <img [src]="member.photoUrl"/>
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="null-module f1"></div>
-  </div>
+  </div> -->
 
   <div class="task-list c">
     <app-task-list-item [task]="task" *ngFor="let task of tasks | async"></app-task-list-item>

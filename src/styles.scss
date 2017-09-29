@@ -62,33 +62,6 @@ input,textarea{
     align-self:center;
 }
 
-.task{
-    margin:1rem 0;
-    padding:1rem;
-
-    &:hover{
-        //box-shadow:0 0 1px #999;
-    }
-
-    .task-header{
-        padding:0.2em 0.5em;
-        background-color:#777776;
-        color:#fff;
-        font-weight:bold;
-    }
-
-    .task-info{
-        font-weight:300;
-    }
-
-    .sub-tasks{
-        border-top:#333 solid 1px;
-
-        .sub-task{
-            font-weight:300;
-        }
-    }
-}
 
 .members-dashboard{
     padding:1rem;

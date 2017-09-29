@@ -1,0 +1,25 @@
+
+.task{
+    margin:1rem 0;
+    padding:1rem;
+    background-color:rgba(192, 173, 113, 0.1);
+
+    .task-header{
+        padding:0 0 0.5rem 0;
+        color:#333;
+        font-size:1.2rem;
+        font-weight:bold;
+    }
+
+    .task-info{
+        font-weight:300;
+    }
+
+    .sub-tasks{
+        border-top:#eee solid 1px;
+
+        .sub-task{
+            font-weight:300;
+        }
+    }
+}

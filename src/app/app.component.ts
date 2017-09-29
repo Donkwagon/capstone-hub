@@ -30,11 +30,6 @@ export class AppComponent {
     this.members = this.db.list('/members');
     this.memberListObservable = this.db.list('/members', { preserveSnapshot: true });
 
-    this.memberListObservable.subscribe(snapshots => {
-      snapshots.forEach(snapshot => {
-        this.memberList.push(snapshot.val());
-      });
-    });
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -46,8 +41,12 @@ export class AppComponent {
           uid: user.uid
         };
 
-        let exist = false;
-        setTimeout(() => {
+        this.memberListObservable.subscribe(snapshots => {
+          snapshots.forEach(snapshot => {
+            this.memberList.push(snapshot.val());
+          });
+
+          let exist = false;
           this.memberList.forEach(mem => {
             if (mem.uid === user.uid ) {
               exist = true;
@@ -57,8 +56,9 @@ export class AppComponent {
           if (!exist) {
             this.members.push(member);
           }
+        });
 
-        }, 2000);
+
 
       } else {
         console.log('No user');
