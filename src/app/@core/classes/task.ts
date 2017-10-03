@@ -21,6 +21,9 @@ export class Task {
     created_at: any;
     updated_at: Date;
 
+    startTimestamp: Number;
+    dueTimestamp: Number;
+
     constructor() {
         this.members = [];
         this.id = '';

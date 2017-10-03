@@ -14,8 +14,10 @@ export class GanttComponent implements OnInit {
   cols: any[];
   rows: any[];
   days: any[];
+  weeks: any[];
+  months: any[];
 
-  w: number; //width of the chart in days
+  w: number; // width of the chart in days
 
   start: any;
   end: any;
@@ -29,81 +31,83 @@ export class GanttComponent implements OnInit {
   constructor(private db: AngularFireDatabase) {
     this.cols = [];
     this.tasks = [];
-    this.days = ['M',"T","W","T","F","S","S"];
+    this.days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+    this.months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
   }
 
   ngOnInit() {
-    this.initGantt();
     this.getTasks();
   }
 
   getTasks() {
-    var tasks = [];
-    
+
+    const tasks = [];
+
     this.tasksObservable = this.db.list('/tasks', { preserveSnapshot: true });
+
     this.tasksObservable.subscribe(snapshots => {
-      snapshots.forEach(task => {
-        tasks.push(task.val());
+
+      snapshots.forEach(task => { tasks.push(task.val()); });
+
+      let start = 1000000000000000, end = 0;
+
+      tasks.forEach(t => { // get start and end anchors
+        if (t.startTimestamp < start) {start = t.startTimestamp; }
+        if (t.dueTimestamp > end) {end = t.dueTimestamp; }
       });
 
-      var start = 1000000000000000;
-      var end = 0;
+      const offsetBefore = 10, offsetAfter = 10;
 
-      //get start and end anchors
-      tasks.forEach(task => {
+      this.start = start - offsetBefore * 3600 * 24 * 1000;
+      this.end = end + offsetAfter * 3600 * 24 * 1000;
 
-        var s  = new Date(task.created_at).getTime();
-        var e  = new Date(task.due_at).getTime();
-
-        var startTimestamp = new Date(start).getTime();
-        var endTimestamp = new Date(end).getTime();
-
-        if(s < start){start = task.created_at;}
-        if(e > endTimestamp){end = task.due_at};
-        console.log("end");
-        console.log(task.due_at);
-        console.log(end);
-      });
-
-      this.start = start;
-      this.end = end;
-        
-      tasks.forEach(task => {
-        task.duration = this.getNumDays(task.created_at,task.due_at);
-        task.offsetStart = this.getNumDays(this.start,task.created_at);
-        task.offsetEnd = this.getNumDays(task.due_at,this.end);
+      tasks.forEach(t => {
+        t.duration = this.getNumDays(t.created_at, t.due_at);
+        t.offsetStart = this.getNumDays(this.start, t.created_at);
+        t.offsetEnd = this.getNumDays(t.due_at, this.end);
       });
 
       this.tasks = tasks;
-    })
+
+      this.initGantt(start, end);
+
+    });
   }
 
-  initGantt() {
+  initGantt(start, end) {
+    // takes start and end from get tasks
+    const len = (end - start) / 3600 / 24 / 1000;
+    let curMonth = '', m = { month: '', days: [] };
+    const date = new Date(start);
 
-    var len = 90;
-    var i = 0;
-    
-    while(i < len){
-      var date = new Date();
-      date.setDate(date.getDate() + i);
-      var day = this.days[date.getDay()];
-      var d = {date: date,num: i,day: day};
-      this.cols.push(d);
-      i++;
+    for (let i = 0; i < len; i++) {
+
+      const d = new Date();
+      d.setDate(date.getDate() + i);
+
+      const day = this.days[d.getDay()];
+      const month = this.months[d.getMonth()];
+      const el = {date: d, num: i, month: month, day: day};
+
+      if (curMonth === month) {
+        m.days.push(el);
+      } else {
+        if (m.month) { this.cols.push(m); }
+        curMonth = month;
+        m = {month: curMonth, days: []};
+      }
+
     }
 
     this.w = this.cols.length;
 
   }
 
-  //takes yyyy-mm-dd
-  getNumDays(start,end) {
-    var s  = new Date(start).getTime();
-    var e  = new Date(end).getTime();
-    var numDays = (e - s)/(3600*24*1000);
-    console.log("num days");
-    console.log(start + "|" + end);
-    console.log(numDays);
+  // takes yyyy-mm-dd
+  getNumDays(start, end) {
+    const s  = new Date(start).getTime();
+    const e  = new Date(end).getTime();
+    const numDays = (e - s) / (3600 * 24 * 1000);
     return numDays;
   }
 

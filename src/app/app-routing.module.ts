@@ -17,8 +17,8 @@ const routes: Routes = [
   { path: 'tasks', component: TaskListComponent},
   { path: 'task/:taskId', component: TaskComponent},
   { path: 'member/:uid', component: MemberComponent},
-  { path: 'phase/:uid', component: PhaseComponent},
-  { path: 'event/:uid', component: EventComponent}
+  { path: 'phases', component: PhaseComponent},
+  { path: 'events', component: EventComponent}
 ];
 
 @NgModule({

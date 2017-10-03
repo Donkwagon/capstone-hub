@@ -19,6 +19,10 @@
             font-weight:bold;
         }
     }
+    
+    .weekend{
+        background-color:rgba(100,100,100,0.05);
+    }
 }
 
 .task-list{
@@ -34,10 +38,10 @@
     .task-bar{
         height:1.4em;
         padding:0 1em;
-        background-color:rgba(192, 173, 113,0.3);
+        font-size:0.8rem;
+        background-color:rgba(247, 240, 227,1);
         border-radius:2px;
         box-shadow: 0 0 1px #999;
-        //border:#ccc solid 1px;
         align-items: center;
     }
 }

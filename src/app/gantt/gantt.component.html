@@ -1,8 +1,12 @@
 <div class="gantt c f1">
   <div class="cols r">
-    <div class="col f1 c" *ngFor="let col of cols">
+    <div class="col f1 c" *ngFor="let m of cols" [style.flex-grow]="m.days.length">
       <div class="col-head c">
-          {{col.day}}
+          {{m.month}}
+      </div>
+      <div class="r f1">
+        <div class="col f1" *ngFor="let d of m.days" [ngClass]="{'weekend': d.day == 'S'}">
+        </div>
       </div>
     </div>
   </div>

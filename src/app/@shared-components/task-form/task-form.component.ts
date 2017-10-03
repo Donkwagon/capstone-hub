@@ -32,6 +32,10 @@ export class TaskFormComponent implements OnInit {
 
   createNewTask() {
     this.newTask.id = this.guid();
+
+    this.newTask.startTimestamp = new Date(this.newTask.created_at).getTime();
+    this.newTask.dueTimestamp = new Date(this.newTask.due_at).getTime();
+    console.log(this.newTask);
     this.tasks.push(this.newTask);
     this.display = false;
   }
