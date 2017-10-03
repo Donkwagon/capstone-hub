@@ -14,7 +14,7 @@
   
     <div class="app-side-menu c">
 
-      <a class="app-side-nav" routerLink="/gantt" routerLinkActive="active">
+      <a class="app-side-nav" routerLink="/home" routerLinkActive="active">
         <i class="fa fa-th-list" aria-hidden="true"></i>
         &nbsp;        
         Work Breakdown
@@ -33,11 +33,20 @@
         PHASES
       </a>
 
-      
       <a class="app-side-nav" routerLink="/events" routerLinkActive="active">
         <i class="fa fa-calendar" aria-hidden="true"></i>        
         &nbsp;        
         EVENTS
+      </a>
+
+      <br>
+      <div class="menu-category">
+        Members
+      </div>
+      <a class="app-side-nav" *ngFor="let member of members | async" routerLink="/member/{{member.uid}}" routerLinkActive="active">
+        <img [src]="member.photoUrl"/>     
+        &nbsp;        
+        {{member.name}}
       </a>
   
       <div class="f1"></div>

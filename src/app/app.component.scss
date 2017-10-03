@@ -3,7 +3,7 @@
     height:3em;
     background-color:rgba(192, 173, 113, 0.1);
     z-index:50;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
     align-items: center;
 
     .app-head-nav{
@@ -19,7 +19,7 @@
     padding:1rem 0;
     background-color:#eee;
     align-items:stretch;
-    background-color:#222C3C;
+    background-color:#281e0b;
 
     .logo{
         height:2em;
@@ -27,13 +27,29 @@
         align-self:center;
     }
 
+    .menu-category{
+        padding:0.5rem 1em;
+        color:rgba(255,255,255,0.5);
+        font-weight:bold;
+        font-size:0.85rem;
+    }
+
     .app-side-nav{
-        padding:1em;
+        padding:0.5rem 1em;
         color:#eee;
+        flex-direction:row;
+        align-items:center;
+
+        img{
+            height:1rem;
+            width:1rem;
+            border-radius:2px;
+        }
 
         &:hover{
             cursor:pointer;
-            color:white;
+            color:#281e0b;
+            background-color:#faf4eb;
             //background-color:white;
         }
     }
