@@ -1,4 +1,5 @@
 <div class="gantt c f1">
+
   <div class="cols r">
     <div class="col f1 c" *ngFor="let m of cols" [style.flex-grow]="m.days.length">
       <div class="col-head c">
@@ -10,6 +11,13 @@
       </div>
     </div>
   </div>
+
+  <div class="event-marker-layer">
+    <div class="event-marker" *ngFor="let marker of events" [style.left.%]="(marker.dateTimestamp-start)/span*100">
+      <div class="marker"></div>
+    </div>
+  </div>
+
   <div class="task-list c">
     <div class="task-row r" *ngFor="let task of tasks">
       <div class="offset-start" [style.flex-grow]="task.offsetStart"></div>

@@ -1,5 +1,5 @@
 
-export class Task {
+export class Event {
 
     _id?: string;
 
@@ -9,8 +9,10 @@ export class Task {
     date: Date;
     dateTimestamp: Number;
 
-    constructor() {
 
+    constructor(date) {
+        this.date = date;
+        this.dateTimestamp = date.getTime();
     }
 
 }

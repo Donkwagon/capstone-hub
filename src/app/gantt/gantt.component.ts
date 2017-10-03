@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Task } from './../@core/classes/task';
+import { Event } from './../@core/classes/event';
 
 @Component({
   selector: 'app-gantt',
@@ -21,6 +22,7 @@ export class GanttComponent implements OnInit {
 
   start: any;
   end: any;
+  span: any;
   current: any;
 
   tasksObservable: FirebaseListObservable<any>;
@@ -28,15 +30,26 @@ export class GanttComponent implements OnInit {
   members: FirebaseListObservable<any>;
   newTask: Task;
 
+  events: Event[];
+
   constructor(private db: AngularFireDatabase) {
     this.cols = [];
     this.tasks = [];
     this.days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
     this.months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+    this.events = [];
   }
 
   ngOnInit() {
     this.getTasks();
+  }
+
+  getToday() {
+    const date = new Date();
+    const today = new Event(date);
+    this.events.push(today);
+    console.log(this.events);
   }
 
   getTasks() {
@@ -60,6 +73,7 @@ export class GanttComponent implements OnInit {
 
       this.start = start - offsetBefore * 3600 * 24 * 1000;
       this.end = end + offsetAfter * 3600 * 24 * 1000;
+      this.span = this.end - this.start;
 
       tasks.forEach(t => {
         t.duration = this.getNumDays(t.created_at, t.due_at);
@@ -70,6 +84,7 @@ export class GanttComponent implements OnInit {
       this.tasks = tasks;
 
       this.initGantt(start, end);
+      this.getToday();
 
     });
   }
