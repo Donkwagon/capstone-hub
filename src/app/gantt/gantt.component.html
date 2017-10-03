@@ -1,30 +1,56 @@
 <div class="gantt c f1">
 
   <div class="cols r">
-    <div class="col f1 c" *ngFor="let m of cols" [style.flex-grow]="m.days.length">
-      <div class="col-head c">
-          {{m.month}}
-      </div>
-      <div class="r f1">
-        <div class="col f1" *ngFor="let d of m.days" [ngClass]="{'weekend': d.day == 'S'}">
+    <div class="gantt-side-panel-offset"></div>
+    <div class="gantt-main r f1">
+        <div class="col f1 c" *ngFor="let m of cols" [style.flex-grow]="m.days.length">
+          <div class="col-head c">
+              {{m.month}}
+          </div>
+          <div class="r f1">
+            <div class="col f1" *ngFor="let d of m.days" [ngClass]="{'weekend': d.day == 'S'}">
+              <div class="col-head c">
+                {{d.date}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <div class="event-marker-layer r">
+    <div class="gantt-side-panel-offset"></div>
+    <div class="gantt-main r f1">
+        <div class="event-marker" *ngFor="let marker of events" [style.left.%]="(marker.dateTimestamp-start)/span*100">
+          <div class="marker"></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="task-list r r">
+    <div class="gantt-main c f1">
+      <div class="task-row r" *ngFor="let task of tasks">
+        <div class="gantt-side-panel-offset">
+          <div class="task-row-info r">
+              
+              <div class="r" *ngFor="let member of task.members">
+                <img class="task-row-profile-img" [src]="member.photoUrl"/>
+              </div>
+              &nbsp;
+              {{task.title}}
+          </div>
+        </div>
+        <div class="r f1">
+            <div class="offset-start" [style.flex-grow]="task.offsetStart"></div>
+            <div class="task-bar r" [style.flex-grow]="task.duration">
+                {{task.title}}
+            </div>
+            <div class="offset-start" [style.flex-grow]="task.offsetEnd"></div>
+
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="event-marker-layer">
-    <div class="event-marker" *ngFor="let marker of events" [style.left.%]="(marker.dateTimestamp-start)/span*100">
-      <div class="marker"></div>
-    </div>
-  </div>
-
-  <div class="task-list c">
-    <div class="task-row r" *ngFor="let task of tasks">
-      <div class="offset-start" [style.flex-grow]="task.offsetStart"></div>
-      <div class="task-bar r" [style.flex-grow]="task.duration">
-          {{task.title}}
-      </div>
-      <div class="offset-start" [style.flex-grow]="task.offsetEnd"></div>
     </div>
   </div>
 </div>

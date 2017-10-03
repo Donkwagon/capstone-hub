@@ -19,6 +19,7 @@
     padding:1rem 0;
     background-color:#eee;
     align-items:stretch;
+    background-color:#222C3C;
 
     .logo{
         height:2em;
@@ -28,13 +29,12 @@
 
     .app-side-nav{
         padding:1em;
-        letter-spacing:0.5px;
-        font-weight:bold;
-        color:#777;
+        color:#eee;
 
         &:hover{
             cursor:pointer;
-            background-color:white;
+            color:white;
+            //background-color:white;
         }
     }
 }

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-$font-stack:'Roboto', sans-serif;
+$font-stack:'Open Sans', sans-serif;
 
 $user:rgb(192, 173, 113);
 $green: #115e67;
@@ -25,7 +25,7 @@ html{
     font-family: $font-stack;
     -webkit-font-smoothing: antialiased;
     color:#220;
-    font-size:14.5px;
+    font-size:13.5px;
 }
 
 body{

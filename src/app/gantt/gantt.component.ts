@@ -93,16 +93,23 @@ export class GanttComponent implements OnInit {
     // takes start and end from get tasks
     const len = (end - start) / 3600 / 24 / 1000;
     let curMonth = '', m = { month: '', days: [] };
-    const date = new Date(start);
+    const startDate = new Date(start);
 
     for (let i = 0; i < len; i++) {
 
       const d = new Date();
-      d.setDate(date.getDate() + i);
+      d.setDate(startDate.getDate() + i);
 
       const day = this.days[d.getDay()];
+      const date = d.getDate();
       const month = this.months[d.getMonth()];
-      const el = {date: d, num: i, month: month, day: day};
+      const el = {
+        fullDate: d,
+        num: i,
+        month: month,
+        day: day,
+        date: date
+      };
 
       if (curMonth === month) {
         m.days.push(el);
@@ -112,7 +119,9 @@ export class GanttComponent implements OnInit {
         m = {month: curMonth, days: []};
       }
 
+
     }
+    this.cols.push(m);
 
     this.w = this.cols.length;
 

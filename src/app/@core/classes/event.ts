@@ -14,5 +14,4 @@ export class Event {
         this.date = date;
         this.dateTimestamp = date.getTime();
     }
-
 }
