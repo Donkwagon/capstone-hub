@@ -8,6 +8,7 @@ import { TaskComponent } from './task/task.component';
 import { MemberComponent } from './member/member.component';
 import { PhaseComponent } from './phase/phase.component';
 import { EventComponent } from './event/event.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'task/:taskId', component: TaskComponent},
   { path: 'member/:uid', component: MemberComponent},
   { path: 'phases', component: PhaseComponent},
-  { path: 'events', component: EventComponent}
+  { path: 'events', component: EventComponent},
+  { path: 'messages', component: MessagesComponent}
 ];
 
 @NgModule({

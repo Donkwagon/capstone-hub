@@ -65,4 +65,8 @@ export class TaskComponent implements OnInit {
     const numDays = (e - s) / (3600 * 24 * 1000);
     return numDays;
   }
+
+  delete(task) {
+    
+  }
 }

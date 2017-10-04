@@ -1,4 +1,4 @@
-<div class="page c" *ngFor="let member of members | async">
+<div class="page c" *ngFor="let member of memberListObservable | async">
 
   <div class="page-cover">
     <h1>{{member.name}}</h1>

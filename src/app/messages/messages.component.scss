@@ -1,0 +1,51 @@
+
+.messages-interface{
+    position:relative;
+    height:100%;
+}
+
+.message{
+    padding:0.5rem 1.5rem;
+
+    &:hover{
+        background-color:#eee;
+    }
+
+    .profile-img{
+
+        img{
+            border-radius:4px;
+            width:2.6rem;height:2.6rem;
+        }
+    }
+
+    .name{
+        font-weight:bold;
+    }
+}
+
+.message-input{
+    position:absolute;
+    z-index:10;
+    width:100%;
+    bottom:0;
+    height:6rem;
+    left:0;
+    background-color:#fff;
+
+    .message-input-form{
+        padding:0.5rem 1.5rem;
+        align-items:flex-start;
+
+        .message-text-input{
+            border-radius:4px;
+            padding:0.8rem 1rem;
+            border:#aaa solid 2px;
+            font-size:1rem;
+
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+}

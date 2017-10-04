@@ -3,6 +3,8 @@
   <div class="overall-task r">
     <div class="c f1">
       <h1>{{task.title}}</h1>
+      <span>Deadline: {{task.due_at}}</span>
+      <br>
       <div class="r">
         <a class="member r" routerLink="/member/{{member.uid}}" *ngFor="let member of task.members">
           <img [src]="member.photoUrl"/>
@@ -17,6 +19,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="btn paper paper-raise" >
           Edit
+        </div>
+        <div class="f1"></div>
+        <div class="btn paper paper-raise" (click)="delete(task)">
+          Delete
         </div>
       </div>
     </div>

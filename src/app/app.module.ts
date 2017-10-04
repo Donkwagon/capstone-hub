@@ -25,6 +25,7 @@ import { TaskComponent } from './task/task.component';
 import { MemberComponent } from './member/member.component';
 import { PhaseComponent } from './phase/phase.component';
 import { EventComponent } from './event/event.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { EventComponent } from './event/event.component';
     TaskComponent,
     MemberComponent,
     PhaseComponent,
-    EventComponent
+    EventComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

@@ -49,7 +49,6 @@ export class GanttComponent implements OnInit {
     const date = new Date();
     const today = new Event(date);
     this.events.push(today);
-    console.log(this.events);
   }
 
   getTasks() {
@@ -76,9 +75,9 @@ export class GanttComponent implements OnInit {
       this.span = this.end - this.start;
 
       tasks.forEach(t => {
-        t.duration = this.getNumDays(t.created_at, t.due_at);
-        t.offsetStart = this.getNumDays(this.start, t.created_at);
-        t.offsetEnd = this.getNumDays(t.due_at, this.end);
+        t.duration = this.getNumDays(t.startTimestamp, t.dueTimestamp);
+        t.offsetStart = this.getNumDays(this.start, t.startTimestamp);
+        t.offsetEnd = this.getNumDays(t.dueTimestamp, this.end);
       });
 
       this.tasks = tasks;
@@ -129,9 +128,7 @@ export class GanttComponent implements OnInit {
 
   // takes yyyy-mm-dd
   getNumDays(start, end) {
-    const s  = new Date(start).getTime();
-    const e  = new Date(end).getTime();
-    const numDays = (e - s) / (3600 * 24 * 1000);
+    const numDays = (end - start) / 3600 / 24 / 1000;
     return numDays;
   }
 

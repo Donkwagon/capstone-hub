@@ -38,13 +38,13 @@
                 <img class="task-row-profile-img" [src]="member.photoUrl"/>
               </div>
               &nbsp;
-              {{task.title}}
+              <a routerLink="/task/{{task.id}}">{{task.title}}</a>
           </div>
         </div>
         <div class="r f1">
             <div class="offset-start" [style.flex-grow]="task.offsetStart"></div>
             <div class="task-bar r" [style.flex-grow]="task.duration">
-                {{task.title}}
+                {{task.due_at}}
             </div>
             <div class="offset-start" [style.flex-grow]="task.offsetEnd"></div>
 

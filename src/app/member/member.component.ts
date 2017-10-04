@@ -31,11 +31,17 @@ export class MemberComponent implements OnInit {
         query: {
           orderByChild: 'uid',
           equalTo: this.memberId
-        }
+        },
+        preserveSnapshot: true
       });
 
-      this.memberListObservable = this.db.list('/members', { preserveSnapshot: true });
-      this.memberListObservable.subscribe(snapshots => {
+      this.memberListObservable = this.db.list('/members', {
+        query: {
+          orderByChild: 'uid',
+          equalTo: this.memberId
+        }
+      });
+      this.members.subscribe(snapshots => {
         snapshots.forEach(member => {
           const key = member.key;
           member = member.val();

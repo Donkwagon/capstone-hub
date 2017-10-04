@@ -23,25 +23,43 @@
       <a class="app-side-nav" routerLink="/gantt" routerLinkActive="active">
         <i class="fa fa-tasks" aria-hidden="true"></i>        
         &nbsp;        
-        GANTT
+        Gantt Chart
+      </a>
+      
+      <a class="app-side-nav" routerLink="/messages" routerLinkActive="active">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>        
+        &nbsp;        
+        Messages
       </a>
 
-      
-      <a class="app-side-nav" routerLink="/phases" routerLinkActive="active">
-        <i class="fa fa-tasks" aria-hidden="true"></i>        
-        &nbsp;        
-        PHASES
-      </a>
 
       <a class="app-side-nav" routerLink="/events" routerLinkActive="active">
         <i class="fa fa-calendar" aria-hidden="true"></i>        
         &nbsp;        
-        EVENTS
+        Critical Dates
       </a>
+      <br>
+      <div class="menu-category">
+        RESOURCES
+      </div>
+
+      <a class="app-side-nav" routerLink="/events" routerLinkActive="active">
+        <i class="fa fa-users" aria-hidden="true"></i>        
+        &nbsp;        
+        Contacts
+      </a>
+
+
+      <a class="app-side-nav" routerLink="/events" routerLinkActive="active">
+        <i class="fa fa-users" aria-hidden="true"></i>        
+        &nbsp;        
+        Resources
+      </a>
+      
 
       <br>
       <div class="menu-category">
-        Members
+        MEMBERS
       </div>
       <a class="app-side-nav" *ngFor="let member of members | async" routerLink="/member/{{member.uid}}" routerLinkActive="active">
         <img [src]="member.photoUrl"/>     
