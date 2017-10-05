@@ -70,19 +70,23 @@ export class GanttComponent implements OnInit {
 
       const offsetBefore = 10, offsetAfter = 10;
 
-      this.start = start - offsetBefore * 3600 * 24 * 1000;
-      this.end = end + offsetAfter * 3600 * 24 * 1000;
+      this.start = start - (offsetBefore * 3600 * 24 * 1000);
+      this.end = end + (offsetAfter * 3600 * 24 * 1000);
       this.span = this.end - this.start;
 
       tasks.forEach(t => {
         t.duration = this.getNumDays(t.startTimestamp, t.dueTimestamp);
         t.offsetStart = this.getNumDays(this.start, t.startTimestamp);
         t.offsetEnd = this.getNumDays(t.dueTimestamp, this.end);
+        console.log("...........");
+        console.log(t.duration);
+        console.log(t.offsetStart);
+        console.log(t.offsetEnd);
       });
 
       this.tasks = tasks;
 
-      this.initGantt(start, end);
+      this.initGantt(this.start, this.end);
       this.getToday();
 
     });
@@ -93,12 +97,14 @@ export class GanttComponent implements OnInit {
     const len = (end - start) / 3600 / 24 / 1000;
     let curMonth = '', m = { month: '', days: [] };
     const startDate = new Date(start);
+    console.log(startDate);
 
     for (let i = 0; i < len; i++) {
 
       const d = new Date();
+      console.log(startDate.getDate());
+      d.setMonth(startDate.getMonth());
       d.setDate(startDate.getDate() + i);
-
       const day = this.days[d.getDay()];
       const date = d.getDate();
       const month = this.months[d.getMonth()];
@@ -109,7 +115,6 @@ export class GanttComponent implements OnInit {
         day: day,
         date: date
       };
-
       if (curMonth === month) {
         m.days.push(el);
       } else {
@@ -121,7 +126,7 @@ export class GanttComponent implements OnInit {
 
     }
     this.cols.push(m);
-
+    console.log(this.cols);
     this.w = this.cols.length;
 
   }

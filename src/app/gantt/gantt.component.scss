@@ -67,8 +67,8 @@
 .task-list{
     position: absolute;
     top:0;left:0;
-    width:100%;height:100%;
-    padding-top:3.2em;
+    width:100%;
+    padding-top:3.4em;
     z-index:20;
 
     .task-row{
@@ -93,11 +93,10 @@
 
     .task-bar{
         height:1.4em;
-        padding:0 1em;
+        padding:0 0;
         font-size:0.8rem;
-        background-color:rgba(247, 240, 227,1);
-        border-radius:2px;
-        box-shadow: 0 0 1px #999;
+        background-color:rgba(40, 30, 11,0.5);
+        border-radius:1px;
         align-items: center;
     }
 }

@@ -43,6 +43,7 @@ export class TaskFormComponent implements OnInit {
   addSubtask() {
     const subTask = new Task();
     this.newTask.subTasks.push(subTask);
+    console.log(this.newTask.subTasks);
   }
 
   addMember(task, member) {
