@@ -1,8 +1,8 @@
-<div class="app c">
+<div class="app c" *ngIf="isSignedIn">
 
   <div class="app-head-bar r">
     <a class="app-head-nav r" routerLink="/home">
-      MPC - CPPIB
+      CPPIB Capstone Design Project
     </a>
     <div class="f1"></div>
     <a class="app-head-nav r" routerLink="/member/{{(user | async)?.uid}}">
@@ -26,7 +26,7 @@
         Gantt Chart
       </a>
       
-      <a class="app-side-nav" routerLink="/messages" routerLinkActive="active">
+      <!-- <a class="app-side-nav" routerLink="/messages" routerLinkActive="active">
         <i class="fa fa-comments-o" aria-hidden="true"></i>        
         &nbsp;        
         Messages
@@ -54,7 +54,7 @@
         <i class="fa fa-users" aria-hidden="true"></i>        
         &nbsp;        
         Resources
-      </a>
+      </a> -->
       
 
       <br>
@@ -68,9 +68,6 @@
       </a>
   
       <div class="f1"></div>
-      <div class="app-side-nav" (click)="login()">
-        Login
-      </div>
   
       <div class="app-side-nav" (click)="logout()">
         Logout
@@ -85,4 +82,13 @@
 
   </div>
 
+</div>
+
+<div class="entrance-layer c" *ngIf="!isSignedIn">
+  <div class="social-login-wrappper c">
+    <h2>CPPIB Capstone Design Project</h2>
+    <br>
+    <div class="btn paper paper-raise publish-btn" (click)="login()">
+        <i class="fa fa-google" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Login</div>   
+  </div>
 </div>

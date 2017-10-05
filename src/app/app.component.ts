@@ -17,6 +17,7 @@ import 'rxjs/add/operator/map';
 export class AppComponent {
 
   user: Observable<firebase.User>;
+  isSignedIn: Boolean;
   members: FirebaseListObservable<any>;
   memberListObservable: FirebaseListObservable<any>;
   memberList: any[];
@@ -33,6 +34,7 @@ export class AppComponent {
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        this.isSignedIn = true;
         const member = {
           name: user.displayName,
           email: user.email,
@@ -73,5 +75,6 @@ export class AppComponent {
 
   logout() {
     this.afAuth.auth.signOut();
+    this.isSignedIn = false;
   }
 }
