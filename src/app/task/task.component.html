@@ -30,8 +30,12 @@
       {{task.due_at}}
     </div>
   </div>
-
-  <p class="task-info">{{task.info}}</p>
+  <div class="task-info c">
+    <p class="c">
+      <b>Description</b>
+      {{task.info}}
+    </p>
+  </div>
   <div class="c">
 
     <div class="subtask" *ngFor="let subtask of task.subTasks">

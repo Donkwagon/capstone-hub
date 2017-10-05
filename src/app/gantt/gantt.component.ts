@@ -97,12 +97,10 @@ export class GanttComponent implements OnInit {
     const len = (end - start) / 3600 / 24 / 1000;
     let curMonth = '', m = { month: '', days: [] };
     const startDate = new Date(start);
-    console.log(startDate);
 
     for (let i = 0; i < len; i++) {
 
       const d = new Date();
-      console.log(startDate.getDate());
       d.setMonth(startDate.getMonth());
       d.setDate(startDate.getDate() + i);
       const day = this.days[d.getDay()];
@@ -126,12 +124,10 @@ export class GanttComponent implements OnInit {
 
     }
     this.cols.push(m);
-    console.log(this.cols);
     this.w = this.cols.length;
 
   }
 
-  // takes yyyy-mm-dd
   getNumDays(start, end) {
     const numDays = (end - start) / 3600 / 24 / 1000;
     return numDays;

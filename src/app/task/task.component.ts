@@ -58,15 +58,16 @@ export class TaskComponent implements OnInit {
     this.displaySubTaskForm = true;
   }
 
-  // takes yyyy-mm-dd
+
   getNumDays(start, end) {
-    const s  = new Date(start).getTime();
-    const e  = new Date(end).getTime();
-    const numDays = (e - s) / (3600 * 24 * 1000);
+    const numDays = (end - start) / 3600 / 24 / 1000;
     return numDays;
   }
 
   delete(task) {
-    
+    const r = confirm('Are you sure you want to delete this task?');
+    if (r === true) {
+      this.tasks.remove(task.$key);
+    }
   }
 }
