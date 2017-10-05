@@ -24,8 +24,10 @@ import { TaskListItemComponent } from './@shared-components/task-list-item/task-
 import { TaskComponent } from './task/task.component';
 import { MemberComponent } from './member/member.component';
 import { PhaseComponent } from './phase/phase.component';
-import { EventComponent } from './event/event.component';
+import { EventsComponent } from './events/events.component';
 import { MessagesComponent } from './messages/messages.component';
+import { EventFormComponent } from './@shared-components/event-form/event-form.component';
+import { EventListItemComponent } from './@shared-components/event-list-item/event-list-item.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +40,10 @@ import { MessagesComponent } from './messages/messages.component';
     TaskComponent,
     MemberComponent,
     PhaseComponent,
-    EventComponent,
-    MessagesComponent
+    EventsComponent,
+    MessagesComponent,
+    EventFormComponent,
+    EventListItemComponent
   ],
   imports: [
     BrowserModule,

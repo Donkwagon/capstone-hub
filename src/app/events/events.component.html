@@ -1,0 +1,12 @@
+<div class="c">
+    
+  <div class="page-cover">
+    <h2>Critical Dates</h2>
+    <app-event-form></app-event-form>
+  </div>
+
+  <div class="task-list c">
+    <app-event-list-item [event]="event" *ngFor="let event of events | async"></app-event-list-item>
+  </div>
+  
+</div>

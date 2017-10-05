@@ -1,0 +1,34 @@
+
+
+<div class="r">
+    <div class="btn paper paper-raise publish-btn" (click)="displayForm()">New Event</div>
+</div>
+
+
+<div class="new-task-form" *ngIf="display">
+
+    <form class="c">
+      <input class="title" placeholder="Event name .."[(ngModel)]="event.name" name="title"/>
+      <div class="input-row r">
+        <div class="input-label c">
+          Event Description
+          <div class="input-label-caption">Briefly describe the event</div>
+        </div>
+        <textarea class="f1" [(ngModel)]="event.info" name="info"></textarea>
+      </div>
+
+      <div class="input-row r">
+        <div class="input-label c">
+          Date
+        </div>
+        <input class="f1" type="date"  [(ngModel)]="event.date" name="due_at"/>
+      </div>
+
+      <div class="submission-row r">
+          <div class="btn paper paper-raise publish-btn" (click)="createEvent()">Publish Now</div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="btn paper paper-raise" (click)="displayForm()">Discard</div>
+      </div>
+      
+    </form>
+</div>

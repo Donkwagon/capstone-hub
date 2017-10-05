@@ -221,3 +221,64 @@ app-gantt, app-messages{
         cursor:pointer;
     }
 }
+
+
+
+.new-task-form{
+    padding:1rem 1rem 0 1rem;
+    margin:1rem 0;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.06) inset;
+    border-left:rgb(192, 173, 113) solid 2px;
+    background-color:#fff;
+
+    .title{
+        margin:0;
+        padding:1rem 0;
+        border:none;
+        margin-bottom:1em;
+        font-size:1.5rem;
+        border-bottom:rgba(192, 173, 113,0.5) solid 1px;
+        font-weight:bold;
+
+        &:focus{
+            border-bottom:rgb(192, 173, 113) solid 1px;
+        }
+    }
+
+    .input-row{
+        padding:0.5em;
+        border-bottom:#eee solid 1px;
+        align-items:center;
+    }
+
+    textarea{
+        min-height:100px;
+    }
+
+    .submission-row{
+        padding:1rem 0.5em;
+    }
+
+    .input-label{
+        width:15em;
+        padding:1em 1em 1em 0;
+
+        .input-label-caption{
+            font-size:0.85rem;
+            font-weight:300;
+            color:#999;
+        }
+    }
+
+    .members{
+        align-items:center;
+
+        .selected{
+            background-color:rgba(192, 173, 113,0.3);
+            font-weight:bold;
+        }
+
+    }
+    
+}

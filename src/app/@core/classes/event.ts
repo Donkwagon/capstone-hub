@@ -5,13 +5,20 @@ export class Event {
 
     id: string;
     name: String;
+    info: String;
 
     date: Date;
     dateTimestamp: Number;
+    created_at: any;
 
 
     constructor(date) {
-        this.date = date;
-        this.dateTimestamp = date.getTime();
+        if (date) {
+            this.date = date;
+            this.dateTimestamp = date.getTime();
+        }
+        const today = new Date();
+        const dd = today.toISOString().slice(0, 10);
+        this.created_at = dd;
     }
 }

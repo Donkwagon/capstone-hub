@@ -17,7 +17,13 @@
       <a class="app-side-nav" routerLink="/home" routerLinkActive="active">
         <i class="fa fa-th-list" aria-hidden="true"></i>
         &nbsp;        
-        Work Breakdown
+        WBS
+      </a>
+      
+      <a class="app-side-nav" routerLink="/events" routerLinkActive="active">
+        <i class="fa fa-calendar" aria-hidden="true"></i>        
+        &nbsp;        
+        Critical Dates
       </a>
       
       <a class="app-side-nav" routerLink="/gantt" routerLinkActive="active">
@@ -33,11 +39,6 @@
       </a>
 
 
-      <a class="app-side-nav" routerLink="/events" routerLinkActive="active">
-        <i class="fa fa-calendar" aria-hidden="true"></i>        
-        &nbsp;        
-        Critical Dates
-      </a>
       <br>
       <div class="menu-category">
         RESOURCES
@@ -70,9 +71,10 @@
       <div class="f1"></div>
   
       <div class="app-side-nav" (click)="logout()">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+        &nbsp;
         Logout
       </div>
-  
   
     </div>
   
